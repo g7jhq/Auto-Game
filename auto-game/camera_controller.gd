@@ -19,6 +19,6 @@ func _physics_process(delta: float) -> void:
 
 func zoom(amnt):
 	var change = Vector2(amnt, amnt)
-	$".".zoom += change #doesn't work TODO
+	
 	
 	
