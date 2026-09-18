@@ -42,7 +42,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5vw27")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -53,7 +53,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4c57u")
 }],
-"loop": true,
+"loop": 1,
 "name": &"interacting",
 "speed": 5.0
 }, {
@@ -70,7 +70,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w48qg")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walking",
 "speed": 5.0
 }]
@@ -92,7 +92,6 @@ sources/0 = SubResource("TileSetAtlasSource_7mycd")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5vw27"]
 noise_type = 0
-frequency = 0.0418
 
 [node name="root" type="Node2D" unique_id=1285388467]
 script = ExtResource("1_h2yge")
@@ -121,10 +120,10 @@ script = ExtResource("5_272bh")
 
 [node name="Grass" type="HSlider" parent="camera/Control" unique_id=118194845]
 layout_mode = 0
-offset_left = -555.0
-offset_top = -277.0
-offset_right = -315.0
-offset_bottom = -261.0
+offset_left = -556.0
+offset_top = -235.0
+offset_right = -316.0
+offset_bottom = -219.0
 min_value = -1.0
 max_value = 1.0
 step = 0.01
@@ -175,10 +174,10 @@ text = "Sand: 0.0"
 
 [node name="Forest" type="HSlider" parent="camera/Control" unique_id=1643765093]
 layout_mode = 0
-offset_left = -555.0
-offset_top = -235.0
-offset_right = -315.0
-offset_bottom = -219.0
+offset_left = -559.0
+offset_top = -278.0
+offset_right = -319.0
+offset_bottom = -262.0
 min_value = -1.0
 max_value = 1.0
 step = 0.01
@@ -190,6 +189,42 @@ offset_top = -22.0
 offset_right = 84.0
 offset_bottom = 1.0
 text = "Forest: 0.0"
+
+[node name="Zoom" type="HSlider" parent="camera/Control" unique_id=2113168156]
+layout_mode = 0
+offset_left = -555.0
+offset_top = -99.0
+offset_right = -315.0
+offset_bottom = -83.0
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="ZL" type="Label" parent="camera/Control/Zoom" unique_id=1396027132]
+layout_mode = 0
+offset_left = 9.0
+offset_top = -22.0
+offset_right = 84.0
+offset_bottom = 1.0
+text = "Zoom: 0.0"
+
+[node name="Hide UI" type="Button" parent="camera/Control" unique_id=1848640155]
+layout_mode = 0
+offset_left = -565.0
+offset_top = -60.0
+offset_right = -533.0
+offset_bottom = -29.0
+text = "/\\"
+
+[node name="Show UI" type="Button" parent="camera/Control" unique_id=1947614973]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = -562.0
+offset_top = -312.0
+offset_right = -532.0
+offset_bottom = -281.0
+text = "\\/"
 
 [node name="background" type="TileMapLayer" parent="." unique_id=684206419]
 tile_set = SubResource("TileSet_272bh")
@@ -205,3 +240,5 @@ terrain = NodePath("../background")
 [connection signal="value_changed" from="camera/Control/Water" to="camera/Control" method="_on_water_value_changed"]
 [connection signal="value_changed" from="camera/Control/Sand" to="camera/Control" method="_on_sand_value_changed"]
 [connection signal="value_changed" from="camera/Control/Forest" to="camera/Control" method="_on_forest_value_changed"]
+[connection signal="pressed" from="camera/Control/Hide UI" to="camera/Control" method="_on_hide_ui_pressed"]
+[connection signal="pressed" from="camera/Control/Show UI" to="camera/Control" method="_on_hide_ui_pressed"]

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="auto game"
 run/main_scene="uid://be5fl8jjttxxk"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [input]

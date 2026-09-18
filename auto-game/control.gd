@@ -1,5 +1,5 @@
 extends Control
-
+var UI = true
 
 func _ready() -> void:
 	$Grass.value = $"../../terraingen".grass_height
@@ -43,3 +43,9 @@ func _on_forest_value_changed(value: float) -> void:
 	$Forest/FL.text = "Forest: %f" % $Forest.value
 	$"../../terraingen".forest_height = $Forest.value
 	$"../../terraingen".generate_terrain()
+
+
+func _on_hide_ui_pressed() -> void:
+	UI = !UI
+	for item in get_children():
+		item.visible = !item.visible

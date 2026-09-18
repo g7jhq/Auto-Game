@@ -24,9 +24,9 @@ func generate_terrain() -> void:
 		for y in range(height):
 			var n2d = noise.get_noise_2d(x*noise_scale, y*noise_scale)
 			if n2d < water_height:
-				terrain.set_cell(Vector2i(x,y), 0, Vector2i(0,4))
-			elif n2d < sand_height && sand_height >= water_height:
 				terrain.set_cell(Vector2i(x,y), 0, Vector2i(4,0))
+			elif n2d < sand_height && sand_height >= water_height:
+				terrain.set_cell(Vector2i(x,y), 0, Vector2i(0,4))
 			elif n2d < grass_height && grass_height >= sand_height:
 				terrain.set_cell(Vector2i(x,y), 0, Vector2i(0,0))
 			else:
